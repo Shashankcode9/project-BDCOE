@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:language_learner/sign_up_page.dart';
 import 'login_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 class welcome extends StatelessWidget {
@@ -30,18 +31,21 @@ class welcome extends StatelessWidget {
            onPrimary: Colors.black,
              minimumSize: Size(300,50)
          ), child:
-         Text("Sign In",style: TextStyle(fontWeight: FontWeight.w700),),
+         Text("Sign In",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 18),),
 
          ),
           SizedBox(height: 20,),
           Text("Dont Have An Account ??",style: TextStyle(fontFamily: 'ubuntu',fontSize:21,color: Colors.white),),
           SizedBox(height: 15,),
-          ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
+          ElevatedButton(onPressed: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context) => signup()));
+          },
+            style: ElevatedButton.styleFrom(
               primary: Colors.white,
               onPrimary: Colors.black,
               minimumSize: Size(300,50)
           ), child:
-          Text("Sign Up",style: TextStyle(fontWeight: FontWeight.w700),),
+          Text("Sign Up",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 18),),
 
           ),
         ],
