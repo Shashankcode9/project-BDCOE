@@ -16,9 +16,9 @@ class ProfilePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
-                radius: 80, // Adjust the radius as needed
+                radius: 80,
                 backgroundImage: NetworkImage(
-                    'https://example.com/your_profile_image.png'), // Replace with your profile image URL
+                    'https://example.com/your_profile_image.png'),
               ),
               SizedBox(height: 20),
               Text(
@@ -29,13 +29,12 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'johndoe@email.com',
+                'deepakverma@gmail.com',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey,
                 ),
               ),
-              // Add more profile information as needed
             ],
           ),
         ),
