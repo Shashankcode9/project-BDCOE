@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:language_learner/login_page.dart';
+import 'package:language_learner/welcomes.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: login(),
+    home: welcome(),
   ));
 }
 
@@ -12,7 +12,9 @@ class Home extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+
+    );
   }
  
 

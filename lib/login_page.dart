@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:language_learner/main.dart';
 
-class login extends StatelessWidget {
+TextEditingController emailcontrol = TextEditingController();
+TextEditingController passwordcontrol = TextEditingController();
+class login extends StatelessWidget{
+  signin(String email,password) async{
+    
+  }
+
   const login({super.key});
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/pexels-ann-h-1762851.jpg'),fit: BoxFit.cover)),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
+    return Scaffold(
+        backgroundColor: Colors.lightGreenAccent,
         body: Stack(
           children: [
             Container(
@@ -24,6 +27,7 @@ class login extends StatelessWidget {
                   child :Column(
                     children: [
                       TextField(
+                        controller: emailcontrol,
                         decoration: InputDecoration(
                           fillColor: Colors.grey.shade300,
                           filled: true,
@@ -34,6 +38,7 @@ class login extends StatelessWidget {
                         ),
                       SizedBox(height: 20,),
                       TextField(
+                        controller: passwordcontrol,
                         obscureText: true,
                         decoration: InputDecoration(
                           fillColor: Colors.grey.shade300,
@@ -55,7 +60,7 @@ class login extends StatelessWidget {
                               backgroundColor: Colors.lightBlue.shade800,
                               child: IconButton(
                                 color: Colors.amberAccent,
-                                onPressed: () { 
+                                onPressed: () {
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => Home()),);
                                 }, icon: Icon(Icons.arrow_forward_ios,size: 30,),
 
@@ -107,8 +112,6 @@ class login extends StatelessWidget {
 
           ],
         ),
-
-      ),
     );
   }
 }
