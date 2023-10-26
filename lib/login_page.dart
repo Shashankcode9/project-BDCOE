@@ -59,7 +59,9 @@ class login extends StatelessWidget{
                               ),
                             ),
                             SizedBox(height: 21,),
-                            ElevatedButton(onPressed: (){},
+                            ElevatedButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyLanguageApp()));
+                            },
                                 style: ElevatedButton.styleFrom(
                                     primary: Colors.white,
                                     onPrimary: Colors.black,
