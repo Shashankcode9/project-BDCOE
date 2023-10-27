@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'profile.dart';
 
 void main() {
   runApp(MyLanguageApp());
@@ -12,11 +11,12 @@ class MyLanguageApp extends StatefulWidget {
 
 class _MyLanguageAppState extends State<MyLanguageApp> {
   int _selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
-    Text('Option 1', style: TextStyle(fontSize: 30)),
-    Text('Option 2', style: TextStyle(fontSize: 30)),
-    Text('Option 3', style: TextStyle(fontSize: 30)),
-    Text('Option 4', style: TextStyle(fontSize: 30)),
+
+  final List<Widget> _screens = [
+    HomeScreen(),
+    Option2Screen(),
+    QuizScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -30,40 +30,114 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title:Center(
-            child: Text('Language Learning App',
-        style: TextStyle(
-        color: Colors.black,),),
-          ),
-          backgroundColor:Colors.green,
+          title: Center(child: Text('Language Learning App')),
+          backgroundColor: Colors.green, // Set the app bar color to green
         ),
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
+        body: _screens[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
+              backgroundColor: Colors.green,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
               label: 'Option2',
+              backgroundColor: Colors.green,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.star),
               label: 'Quiz',
+              backgroundColor: Colors.green,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',
+              backgroundColor: Colors.green,
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.green,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.black,
           onTap: _onItemTapped,
         ),
       ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  // List of languages to display on cards
+  final List<String> languages = [
+    'English',
+    'Spanish',
+    'French',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0), //deepak-to add space between appbar and eng card widget
+        child: ListView.builder(
+          itemCount: languages.length,
+          itemBuilder: (context, index) {
+            return CardLanguageWidget(languages[index]);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class CardLanguageWidget extends StatelessWidget {
+  final String languageName;
+
+  CardLanguageWidget(this.languageName);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.green, // Set the background color of the Card to green
+      margin: EdgeInsets.all(10),
+      child: ListTile(
+        title: Text(
+          languageName,
+          style: TextStyle(fontSize: 24.0, color: Colors.white), // Text color
+        ),
+
+        onTap: () {
+          // shashank- Add navigation logic if needed when a card is tapped
+        },
+      ),
+    );
+  }
+}
+
+class Option2Screen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Option 2 Screen'),
+    );
+  }
+}
+
+class QuizScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Quiz Screen'),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Profile Screen'),
     );
   }
 }
