@@ -71,10 +71,12 @@ class _signupState extends State<signup> {
                           height: 10,
                         ),
                         TextField(
+                          obscureText: true,
                           decoration: InputDecoration(
                             fillColor: Colors.grey.shade300,
                             filled: true,
                             prefixIcon: Icon(Icons.password_outlined),
+
                             hintText: 'Password',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),),

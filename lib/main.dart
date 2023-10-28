@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:language_learner/language_selection.dart';
+import 'package:language_learner/learning_Hindi.dart';
 import 'package:language_learner/welcomes.dart';
+import 'package:language_learner/language_selection.dart';
+import 'package:language_learner/profile.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -14,11 +18,11 @@ class MyLanguageApp extends StatefulWidget {
 
 class _MyLanguageAppState extends State<MyLanguageApp> {
   int _selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
-    Text('Option 1', style: TextStyle(fontSize: 30)),
+  final List<Widget> _widgetOptions = <Widget>[
+    Hindi(),
     Text('Option 2', style: TextStyle(fontSize: 30)),
     Text('Option 3', style: TextStyle(fontSize: 30)),
-    Text('Option 4', style: TextStyle(fontSize: 30)),
+    detail(),
   ];
 
   void _onItemTapped(int index) {
@@ -27,9 +31,11 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
       home: Scaffold(
         appBar: AppBar(
           title:Center(
@@ -37,6 +43,7 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
               style: TextStyle(
                 color: Colors.white,),),
           ),
+
           backgroundColor:Colors.green,
         ),
         body: Center(
@@ -60,6 +67,7 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
               label: 'Quiz',
               backgroundColor: Colors.green,
             ),
+
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: 'Profile',
