@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-
+import 'french.dart';
+import 'spanish.dart';
+import 'profile.dart';
+import 'english.dart';
+import 'quiz.dart';
 void main() {
   runApp(MyLanguageApp());
 }
@@ -99,7 +103,7 @@ class CardLanguageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.green, // Set the background color of the Card to green
+      color: Colors.green,
       margin: EdgeInsets.all(10),
       child: ListTile(
         title: Text(
@@ -108,7 +112,8 @@ class CardLanguageWidget extends StatelessWidget {
         ),
 
         onTap: () {
-          // shashank- Add navigation logic if needed when a card is tapped
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>EnglishPage(),),);
+          // shashank- add navigation
         },
       ),
     );
