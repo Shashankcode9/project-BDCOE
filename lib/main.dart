@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:language_learner/language_selection.dart';
 import 'package:language_learner/learning_Hindi.dart';
+import 'package:language_learner/quiz.dart';
 import 'package:language_learner/welcomes.dart';
 import 'package:language_learner/language_selection.dart';
 import 'package:language_learner/profile.dart';
@@ -21,7 +22,7 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
   final List<Widget> _widgetOptions = <Widget>[
     Hindi(),
    HomeScreen(),
-    Text('Option 3', style: TextStyle(fontSize: 30)),
+    QuizApp(),
     detail(),
   ];
 
