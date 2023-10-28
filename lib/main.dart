@@ -20,7 +20,7 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     Hindi(),
-    Text('Option 2', style: TextStyle(fontSize: 30)),
+   HomeScreen(),
     Text('Option 3', style: TextStyle(fontSize: 30)),
     detail(),
   ];
@@ -81,6 +81,81 @@ class _MyLanguageAppState extends State<MyLanguageApp> {
           onTap: _onItemTapped,
         ),
       ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  // List of languages to display on cards
+  final List<String> languages = [
+    'English',
+    'Spanish',
+    'French',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0), //deepak-to add space between appbar and eng card widget
+        child: ListView.builder(
+          itemCount: languages.length,
+          itemBuilder: (context, index) {
+            return CardLanguageWidget(languages[index]);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class CardLanguageWidget extends StatelessWidget {
+  final String languageName;
+
+  CardLanguageWidget(this.languageName);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.green, // Set the background color of the Card to green
+      margin: EdgeInsets.all(10),
+      child: ListTile(
+        title: Text(
+          languageName,
+          style: TextStyle(fontSize: 24.0, color: Colors.white), // Text color
+        ),
+
+        onTap: () {
+          // shashank- Add navigation logic if needed when a card is tapped
+        },
+      ),
+    );
+  }
+}
+
+class Option2Screen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Option 2 Screen'),
+    );
+  }
+}
+
+class QuizScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Quiz Screen'),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Profile Screen'),
     );
   }
 }
